@@ -33,6 +33,11 @@ import { FileInterceptor } from '@nestjs/platform-express';
 export class CategoryController {
   constructor(private categoryService: CategoryService) {}
 
+  @Get('/helloworld')
+  test() {
+    return '/helloworld';
+  }
+
   @ApiOkResponse({ type: [CategoryDto], description: `List categories` })
   @Get()
   findAllByActive(@Query('active') active: string): Promise<CategoryDto[]> {
